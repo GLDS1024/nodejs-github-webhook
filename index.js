@@ -39,7 +39,7 @@ http.createServer(function (req, res) {
     var date = new Date((new Date()).getTime());
     Y = date.getFullYear() + '-';
     M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
-    D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' ';
+    D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate());
 
     fs.appendFile(Y + M + D + '.log', '\n' + jsonString, err => {
       if (err) {
