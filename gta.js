@@ -6,7 +6,7 @@ const fs = require('fs');
 
 
 var secret = 'amazingkey'; // secret key of the webhook
-var port = 8081; // port
+var port = 8082; // port
 
 http.createServer(function (req, res) {
 
@@ -41,7 +41,7 @@ http.createServer(function (req, res) {
     M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
     D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate());
 
-    fs.appendFile(Y + M + D + '.log', '\n' + jsonString, err => {
+    fs.appendFile('gta_'+ Y + M + D + '.log', '\n' + jsonString, err => {
       if (err) {
         console.error(err);
       }
@@ -49,7 +49,7 @@ http.createServer(function (req, res) {
 
     try {
 
-      exec('cd ../bet && git pull', (error, stdout, stderr) => {
+      exec('cd ../gta && git pull', (error, stdout, stderr) => {
         if (error) {
           console.error(`exec error: ${error}`);
         }
